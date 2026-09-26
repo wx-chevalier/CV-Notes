@@ -20,8 +20,7 @@ measure                  图像属性的测量，如相似性或等高线等
 segmentation                          图像分割
 restoration                           图像恢复
 util                                  通用函数
-```
-
+```python
 ## PIL vs skimage
 
 Image 读出来的是 PIL 的类型，而 skimage.io 读出来的数据是 numpy 格式的：
@@ -34,8 +33,7 @@ from skimage import io,transform
 #Image和skimage读图片
 img_file1 = img.open('./CXR_png/MCUCXR_0042_0.png')
 img_file2 = io.imread('./CXR_png/MCUCXR_0042_0.png')
-```
-
+```python
 输出可以看出 Img 读图片的大小是图片的(width, height)；而 skimage 的是(height,width, channel)。
 
 ```py
@@ -53,7 +51,6 @@ print(img_file1.getpixel((1000,500)), img_file2[500][1000])
 (0, 139)
 (0, 0)
 (139, 139)
-```
-
+```python
 Img 读出来的图片获得某点像素用 getpixel((w,h))可以直接返回这个点三个通道的像素值
 skimage 读出来的图片可以直接 img_file2[0][0]获得，但是一定记住它的格式，并不是你想的(channel,height,width)。
